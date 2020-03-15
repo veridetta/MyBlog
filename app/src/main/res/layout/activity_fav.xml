@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_350sdp"
+                        android:minHeight="@dimen/_80sdp"
+                        android:background="@color/orange_400"
+                        android:padding="@dimen/_6sdp">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_80sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/fav_judul"
+                            android:layout_gravity="bottom"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_width="@dimen/_150sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Artikel Favorit Kamu"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_18sdp"/>
+                        <LinearLayout
+                            android:id="@+id/no_result"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_150sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_width="@dimen/_150sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Oops. .."
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_30sdp"/>
+                            <TextView
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_width="@dimen/_150sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Belum ada artikel favorit yang disimpan"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_16sdp"/>
+                            <TextView
+                                android:layout_gravity="bottom"
+                                android:layout_marginLeft="@dimen/_8sdp"
+                                android:layout_width="@dimen/_150sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Silahkan simpan beberapa resep favoritmu"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14sdp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:padding="@dimen/_6sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp">
+                            <io.supercharge.shimmerlayout.ShimmerLayout
+                                android:id="@+id/shimmer_fav"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                app:shimmer_animation_duration="1200">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <include layout="@layout/shimmer_artikel_list" />
+                                    <include layout="@layout/shimmer_artikel_list" />
+                                    <include layout="@layout/shimmer_artikel_list" />
+                                    <include layout="@layout/shimmer_artikel_list" />
+                                </LinearLayout>
+
+                            </io.supercharge.shimmerlayout.ShimmerLayout>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="@dimen/_250sdp"
+                                android:id="@+id/rc_fav">
+
+                            </androidx.recyclerview.widget.RecyclerView>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
