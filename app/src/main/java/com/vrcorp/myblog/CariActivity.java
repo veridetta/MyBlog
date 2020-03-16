@@ -78,6 +78,13 @@ public class CariActivity extends AppCompatActivity {
                     Toast.makeText(CariActivity.this,"Maksimal 10 huruf",Toast.LENGTH_LONG).show();
                 }else{
                     no_result.setVisibility(View.GONE);
+                    judulList.clear();
+                    gambarList.clear();
+                    penerbitList.clear();
+                    waktuList.clear();
+                    urlList.clear();
+                    kategoriList.clear();
+                    favList.clear();
                     new CardGet().execute();
                     sh_cari.setVisibility(View.VISIBLE);
                     sh_cari.startShimmerAnimation();
@@ -98,7 +105,7 @@ public class CariActivity extends AppCompatActivity {
             // NO CHANGES TO UI TO BE DONE HERE
             String url = "https://mydemoblog19.blogspot.com/search?q="+cariVal;
             Document mBlogPagination = null;
-
+            System.out.println(url);
             try {
                 mBlogPagination = Jsoup.parse(new URL(url),50000);
             } catch (IOException e) {
@@ -110,7 +117,7 @@ public class CariActivity extends AppCompatActivity {
             // Using Elements to get the Meta data
             // -------------- RECENTT ---------------
             //----------------
-            Elements mElementDataSize = mBlogPagination.select("div[class=post] article[class=post-outer-container]");
+            Elements mElementDataSize = mBlogPagination.select("div[class=blog-posts hfeed container] article[class=post-outer-container]");
             // Locate the content attribute
             int mElementSize = mElementDataSize.size();
             int max = 0;

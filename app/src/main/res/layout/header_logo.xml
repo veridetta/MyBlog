@@ -3,6 +3,6 @@
     android:id="@+id/logo_white"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/materialviewpager_logoHeight"
-    android:text="Welcome To MyBlog"
+    android:text=""
     android:textSize="@dimen/_20sdp"
     android:textColor="@color/white"/>

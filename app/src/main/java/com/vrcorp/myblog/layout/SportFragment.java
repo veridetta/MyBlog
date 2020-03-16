@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.vrcorp.myblog.R;
 import com.vrcorp.myblog.adapter.ArtikelAdapter;
+import com.vrcorp.myblog.adapter.SportAdapter;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -77,11 +78,22 @@ public class SportFragment extends Fragment {
         rc_art = view.findViewById(R.id.rc_art);
         sh_art = view.findViewById(R.id.sh_art);
         kosong = view.findViewById(R.id.kosong);
-        new CardGet().execute();
+        if(judulList.size()>0){
+            judulList.clear();
+            gambarList.clear();
+            penerbitList.clear();
+            waktuList.clear();
+            urlList.clear();
+            kategoriList.clear();
+            favList.clear();
+            new Sport().execute();
+        }else{
+            new Sport().execute();
+        }
         sh_art.startShimmerAnimation();
         return view;
     }
-    private class CardGet extends AsyncTask<Void, Void, Void> {
+    private class Sport extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
             // NO CHANGES TO UI TO BE DONE HERE
@@ -143,14 +155,14 @@ public class SportFragment extends Fragment {
             //--------------RECENT -
             //--------------------
             System.out.println(gambarList);
-            ArtikelAdapter mDataAdapter = new ArtikelAdapter( getActivity(), judulList, kategoriList,
+            SportAdapter mDataAdapter = new SportAdapter( getActivity(), judulList, kategoriList,
                     gambarList, urlList,penerbitList,waktuList,favList);
             //RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(),1, LinearLayoutManager.VERTICAL, false);
             //attachToRecyclerView
 
             if(judulList.size()>0){
                 rc_art.setHasFixedSize(true);
-
+                success=1;
                 //Use this now
                 //rc_art.setLayoutManager(mLayoutManager);
                 if (GRID_LAYOUT) {

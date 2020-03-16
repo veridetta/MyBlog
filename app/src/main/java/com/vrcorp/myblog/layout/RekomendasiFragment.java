@@ -75,7 +75,19 @@ public class RekomendasiFragment extends Fragment {
         rc_art = view.findViewById(R.id.rc_art);
         sh_art = view.findViewById(R.id.sh_art);
         kosong = view.findViewById(R.id.kosong);
-        new CardGet().execute();
+        if(judulList.size()>0){
+            judulList.clear();
+            gambarList.clear();
+            penerbitList.clear();
+            waktuList.clear();
+            urlList.clear();
+            kategoriList.clear();
+            favList.clear();
+            new CardGet().execute();
+        }else{
+            new CardGet().execute();
+        }
+
         sh_art.startShimmerAnimation();
         return view;
     }
@@ -148,7 +160,7 @@ public class RekomendasiFragment extends Fragment {
 
             if(judulList.size()>0){
                 rc_art.setHasFixedSize(true);
-
+                success=1;
                 //Use this now
                 //rc_art.setLayoutManager(mLayoutManager);
                 if (GRID_LAYOUT) {

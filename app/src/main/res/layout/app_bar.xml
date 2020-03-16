@@ -10,4 +10,8 @@
     app:layout_collapseMode="pin"
     app:layout_scrollFlags="scroll|enterAlways"
     app:theme="@style/MyToolbarTheme"
+    android:minHeight="@dimen/_18sdp"
+    android:maxHeight="@dimen/_20sdp"
+    android:maxWidth="@dimen/_20sdp"
+    android:minWidth="@dimen/_18sdp"
     app:title="@string/app_name"/>

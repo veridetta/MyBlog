@@ -97,10 +97,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return modelList;
     }
     /*delete a row from database*/
-    public void deletDB(String id){
+    public void deletDB(String url){
         SQLiteDatabase db= this.getWritableDatabase();
-        db.delete(DB_TABLE, "id" + " = ?", new String[] { id });
+        db.delete(DB_TABLE, "url" + " = ?", new String[] { url });
         db.close();
+        Log.i("delete into DB", "After insert");
     }
     public int cekFav(String url)
     {

@@ -3,10 +3,12 @@
     <style name="MyToolbarTheme" parent="@style/Theme.AppCompat">
         <item name="colorControlNormal">@color/white</item>
         <item name="titleTextColor">@color/white</item>
+        <item name="android:minWidth">19dp</item>
+        <item name="android:maxWidth">20dp</item>
+        <item name="android:width">20dp</item>
     </style>
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
     </style>
-
     <style name="AppTheme" parent="AppBaseTheme">
 
         <item name="android:textColorPrimary">@android:color/white</item>

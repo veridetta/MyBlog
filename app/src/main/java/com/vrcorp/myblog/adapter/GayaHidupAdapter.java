@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +24,8 @@ import com.vrcorp.myblog.R;
 import com.vrcorp.myblog.db.DBHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.MyViewHolder> {
+public class GayaHidupAdapter extends RecyclerView.Adapter<GayaHidupAdapter.MyViewHolder> {
     private ArrayList<String> judulList = new ArrayList<>();
     private ArrayList<String> kategoriList = new ArrayList<>();
     private ArrayList<String> photoList = new ArrayList<>();
@@ -40,10 +38,10 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.MyViewHo
     int success=0, favoritStatus=0;
 
 
-    public ArtikelAdapter(Context context, ArrayList<String> judulList,
-                       ArrayList<String> kategoriList,
-                       ArrayList<String> photoList,
-                       ArrayList<String> urlList,
+    public GayaHidupAdapter(Context context, ArrayList<String> judulList,
+                          ArrayList<String> kategoriList,
+                          ArrayList<String> photoList,
+                          ArrayList<String> urlList,
                           ArrayList<String> penerbitList,
                           ArrayList<String> waktuList,
                           ArrayList<Integer> favList) {
@@ -129,7 +127,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.MyViewHo
                                     holder.gFav.setImageDrawable(resource);
                                 }
                             });
-                    helper.deletDB(urlList.get(position));
                     favoritStatus=0;
                 }else{
                     Glide.with(holder.gFav)
@@ -153,3 +150,4 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.MyViewHo
         return judulList.size();
     }
 }
+
